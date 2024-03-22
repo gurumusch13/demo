@@ -16,7 +16,7 @@ class staff extends character{
     public function get_part(){
         return $this->part;
     }
-    final private function staffcode_continue(){
+    private function staffcode_continue(){
         static $makecode = 1;
         return $makecode++;
     }

@@ -35,7 +35,7 @@ echo "Email: ".$sv2 -> get_email()."<br/>";
 <?php
 //more opp php
 include("staff.php");
-$nhanvat = new character("Nguyen Van A", 5678);
+$character = new character("Nguyen Van A", 5678);
 echo "<h2>--- Add: Object Oriented PHP --</h2>";
 echo "Full name: ".$character -> get_fullname()."<br/>";
 echo "Country code: ".$character -> get_countrycode()."<br/>";
