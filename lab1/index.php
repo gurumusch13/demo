@@ -62,14 +62,12 @@ $_POST['physics'] : "" ; ?>" />
                 <label>Select an area</label>
             </div>
             <div class="lblinput">
-                
                 <select name="khuvuc">
-                    
                     <option value="0" <?php $_POST['area']=0?> selected>-- Select an area -- </option>
-                    <option value="1" <?php echo $_POST['area']==1 ? "selected" : ""; $_POST['area']=1?>> Area 1 </option>
-                    <option value="2" <?php echo $_POST['area']==2 ? "selected" : ""; $_POST['area']=2 ?>> Area 2 </option>
-                    <option value="3" <?php echo $_POST['area']==3 ? "selected" : ""; $_POST['area']=3 ?>> Area 3 </option>
-                    <option value="4" <?php echo $_POST['area']==4 ? "selected" : ""; $_POST['area']=4 ?>> Area 4 </option>
+                    <option value="1" <?php echo $_POST['area']==1 ? "selected" : "1"; $_POST['area']=1?>> Area 1 </option>
+                    <option value="2" <?php echo $_POST['area']==2 ? "selected" : "2"; $_POST['area']=2 ?>> Area 2 </option>
+                    <option value="3" <?php echo $_POST['area']==3 ? "selected" : "3"; $_POST['area']=3 ?>> Area 3 </option>
+                    <option value="4" <?php echo $_POST['area']==4 ? "selected" : "4"; $_POST['area']=4 ?>> Area 4 </option>
                     <option value="5" <?php echo $_POST['area']==5 ? "selected" : ""; $_POST['area']=5 ?>> Area 5 </option>
                 </select>
             </div>
@@ -90,8 +88,7 @@ Ratings" />
                 <label>Total points</label>
             </div>
             <div class="lbloutput">
-                <?php echo isset($_POST['btnsubmit']) ? $_POST['math']
-+ $_POST['physics'] + $_POST['chemistry'] : "" ; ?>
+                <?php echo isset($_POST['btnsubmit']) ? $_POST['math'] + $_POST['physics'] + $_POST['chemistry'] : "" ; ?>
                 </div>
             </div>
         </div>
@@ -124,7 +121,7 @@ else echo "Weak";
     <div class="lbloutput">
         <?php
         if (isset($_POST['btnsubmit'])) {
-            $priority_points = $_POST['area'];
+            $priority_points = $_POST['khuvuc'];
             switch ($priority_points) {
                 case 0:
                 case 4:
