@@ -10,20 +10,28 @@ $quantity = $_POST["txtquantity"];
 $description = $_POST["txtdesc"];
 $picture = $_POST["txtpic"];
 //Initialize the product object
-$newProduct = new Product($productName, $cateID, $price, $quantity,
-$description, $picture);
+$newProduct = new Product($productName, $cateID, $price, $quantity,$description, $picture);
+$loi = array();
+$loi_str = "";
 // Save to the database
-$result = $newProduct->save();
+$result = $newProduct->save($loi);
+//$result = $newProduct->save();
 if (!$result) {
 //Error query
-header("Location: product-add.php?status=failure");
+    //header("Location: product-add.php?status=failure");
+    foreach($loi as $item) $loi_str = $loi_str.$item."<br/>";
 } else {
     header("Location: product-add.php?status=inserted");
     }
-    }
-    ?>
-    <?php require 'header.php'; ?>
-    <?php
+}
+?>
+<?php 
+if (isset($loi_str)){
+    if ($loi_str!=""){?>
+        <div class="alert alert-danger"><?php echo $loi_str ?></div>
+<?php } }?>
+<?php require 'header.php'; ?>
+<?php
     if (isset($_GET["status"])) {
     if ($_GET["status"] == 'inserted') {
     echo "<h2>Add successful product.</h2>";
@@ -106,7 +114,7 @@ isset($_POST["txtcateid"]) ? $_POST["txtcateid"] : "" ?>"> -->
 <label>Url Image</label>
 </div>
 <div class="lblinput">
-<input type="file" name="txtpic" accept=".PNG,.GIF,.JPG,.JPGEG">
+<input type="file" name="txtpic" accept=".png,.gif,.jpg,.jpeg">
 </div>
 </div>
 <div class="row">
